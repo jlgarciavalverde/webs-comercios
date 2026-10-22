@@ -1,0 +1,117 @@
+{% from "iconos.html" import icono %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Una web para {{ c.nombre }}</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+body{margin:0;font:10.5pt/1.45 Lato,Helvetica,Arial,sans-serif;color:#1f2933;--c:{{ tema.color }};--s:{{ tema.suave }};--o:{{ tema.oscuro }}}
+.pag{width:210mm;height:297mm;padding:16mm 16mm 14mm;position:relative;overflow:hidden;page-break-after:always}
+.pag:last-child{page-break-after:auto}
+.franja{position:absolute;inset:0 0 auto 0;height:7mm;background:var(--c)}
+.pre{font-size:9.5pt;text-transform:uppercase;letter-spacing:1.2px;color:var(--c);font-weight:900;margin-top:6mm}
+h1{font-size:28pt;line-height:1.08;font-weight:900;color:var(--o);margin:2mm 0 3mm}
+.intro{font-size:12pt;color:#3d4852;max-width:150mm;margin:0}
+.capturas{display:flex;gap:7mm;align-items:flex-end;margin:9mm 0 8mm;justify-content:center}
+.pc{width:118mm;border-radius:3mm;border:1.6mm solid #1f2933;border-top-width:5mm}
+.movil{width:40mm;border-radius:5mm;border:1.6mm solid #1f2933}
+.fila{display:grid;grid-template-columns:1fr 58mm;gap:10mm;align-items:start}
+h2{font-size:14pt;font-weight:900;color:var(--o);margin:0 0 3mm}
+ul{list-style:none;padding:0;margin:0;display:grid;gap:2.6mm}
+li{display:flex;gap:2.5mm;align-items:flex-start}li svg{color:var(--c);flex:none;margin-top:.4mm}
+.qr{border:0.5mm solid var(--c);border-radius:4mm;padding:4mm;text-align:center;background:var(--s)}
+.qr img{width:44mm;height:44mm;display:block;margin:0 auto 2mm}
+.qr b{display:block;color:var(--o);font-size:11pt}
+.qr small{display:block;word-break:break-all;color:#52606d;font-size:7.5pt;margin-top:1mm}
+.pie{position:absolute;left:16mm;right:16mm;bottom:12mm;display:flex;justify-content:space-between;font-size:9pt;color:#52606d;border-top:.3mm solid #e4e7eb;padding-top:3mm}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin:6mm 0 9mm}
+.pack{border:.4mm solid #e4e7eb;border-radius:4mm;padding:5mm;position:relative}
+.pack.dest{border:.7mm solid var(--c);background:var(--s)}
+.pack .tag{position:absolute;top:-3.2mm;left:5mm;background:var(--c);color:#fff;font-size:8pt;font-weight:900;padding:.6mm 2.5mm;border-radius:2mm;text-transform:uppercase}
+.pack h3{margin:0 0 1mm;font-size:12pt}
+.precio{font-size:22pt;font-weight:900;color:var(--o)}
+.precio small{font-size:10pt;font-weight:700;color:#52606d}
+.pack ul{margin-top:3mm;gap:1.6mm;font-size:9.5pt}
+.pasos{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin:4mm 0 9mm}
+.paso{background:#f5f7fa;border-radius:3mm;padding:4mm}
+.paso b{display:block;color:var(--c);font-size:18pt;font-weight:900;line-height:1}
+.contacto{background:var(--o);color:#fff;border-radius:4mm;padding:7mm;display:flex;justify-content:space-between;align-items:center;gap:8mm}
+.contacto h2{color:#fff;margin:0 0 1mm}
+.contacto .d{font-size:12pt;line-height:1.7}
+</style>
+</head>
+<body>
+<section class="pag">
+  <div class="franja"></div>
+  <div class="pre">Propuesta para {{ c.tipo }}{% if c.zona %} · {{ c.zona }}{% endif %}</div>
+  <h1>Una web para<br>{{ c.nombre }}</h1>
+  <p class="intro">He preparado una demo de cómo podría ser vuestra página. Es solo un punto de partida: textos, colores, fotos y secciones se adaptan a vuestro negocio.</p>
+  <div class="capturas"><img class="pc" src="{{ pc }}" alt="Demo en ordenador"><img class="movil" src="{{ movil }}" alt="Demo en el móvil"></div>
+  <div class="fila">
+    <div>
+      <h2>Lo que os aporta</h2>
+      <ul>{% for b in t.beneficios %}<li>{{ icono("check", 16) }}<span>{{ b }}</span></li>{% endfor %}
+        <li>{{ icono("check", 16) }}<span>Se ve perfecta en el móvil, que es desde donde buscan vuestros clientes</span></li>
+      </ul>
+    </div>
+    <div class="qr"><img src="{{ qr }}" alt="QR de la demo"><b>Mírala ahora en el móvil</b>Escanea el código<small>{{ url }}</small></div>
+  </div>
+  <div class="pie"><span>{{ cfg.autor.nombre }} · Desarrollo web en Murcia</span><span>1/2</span></div>
+</section>
+
+<section class="pag">
+  <div class="franja"></div>
+  <div class="pre">Sin letra pequeña</div>
+  <h1>Elige tu opción</h1>
+  <div class="packs">
+    <div class="pack">
+      <h3>Web</h3>
+      <div class="precio">{{ cfg.precios.web_basica }} €</div>
+      <ul>
+        <li>{{ icono("check", 14) }}<span>Diseño a vuestra medida</span></li>
+        <li>{{ icono("check", 14) }}<span>Adaptada a móvil</span></li>
+        <li>{{ icono("check", 14) }}<span>Botones de llamar, WhatsApp y cómo llegar</span></li>
+        <li>{{ icono("check", 14) }}<span>Alta en Google Maps</span></li>
+      </ul>
+    </div>
+    <div class="pack dest">
+      <span class="tag">Recomendado</span>
+      <h3>Web + placa NFC</h3>
+      <div class="precio">{{ cfg.precios.web_con_placa }} €</div>
+      <ul>
+        <li>{{ icono("check", 14) }}<span>Todo lo de la web</span></li>
+        <li>{{ icono("check", 14) }}<span>Placa NFC + QR para pedir reseñas en Google</span></li>
+        <li>{{ icono("check", 14) }}<span>El cliente acerca el móvil y deja su reseña en segundos</span></li>
+      </ul>
+    </div>
+    <div class="pack">
+      <h3>Mantenimiento</h3>
+      <div class="precio">{{ cfg.precios.mantenimiento_mes }} €<small>/mes</small></div>
+      <ul>
+        <li>{{ icono("check", 14) }}<span>Dominio y alojamiento</span></li>
+        <li>{{ icono("check", 14) }}<span>Cambios de horario, carta o precios</span></li>
+        <li>{{ icono("check", 14) }}<span>Copias de seguridad</span></li>
+        <li>{{ icono("check", 14) }}<span>Sin permanencia</span></li>
+      </ul>
+    </div>
+  </div>
+  <h2>Cómo trabajamos</h2>
+  <div class="pasos">
+    <div class="paso"><b>1</b>Vemos la demo juntos y me contáis qué necesitáis.</div>
+    <div class="paso"><b>2</b>La adapto con vuestras fotos, textos y colores.</div>
+    <div class="paso"><b>3</b>La revisáis y pedís los cambios que queráis.</div>
+    <div class="paso"><b>4</b>Publicada en 1–2 semanas, con vuestro dominio.</div>
+  </div>
+  <div class="contacto">
+    <div>
+      <h2>¿Hablamos?</h2>
+      <div class="d">{{ cfg.autor.nombre }}<br>{{ cfg.autor.telefono }}{% if cfg.autor.email %}<br>{{ cfg.autor.email }}{% endif %}{% if cfg.autor.web %}<br>{{ cfg.autor.web }}{% endif %}</div>
+    </div>
+    <div style="max-width:80mm;font-size:10pt;opacity:.9">Soy ingeniero informático de Murcia. Hago webs sencillas, rápidas y fáciles de mantener para comercios de barrio.</div>
+  </div>
+  <div class="pie"><span>{{ cfg.precios.nota }} · Demo válida {{ cfg.demos.caducidad_dias }} días</span><span>2/2</span></div>
+</section>
+</body>
+</html>

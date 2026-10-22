@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>{{ titulo }}</title>
+<style>
+@page{size:A4;margin:12mm}
+body{font:10pt/1.4 Helvetica,Arial,sans-serif;color:#1f2933;margin:0}
+h1{font-size:18pt;margin:0 0 2mm}
+.maps{font-size:9pt;word-break:break-all;margin-bottom:5mm}
+.p{border:.3mm solid #cbd2d9;border-radius:3mm;padding:3.5mm 4mm;margin-bottom:3.5mm;page-break-inside:avoid}
+.p h2{font-size:12pt;margin:0}
+.meta{color:#52606d;font-size:9pt;margin:1mm 0 2mm}
+.guion{background:#f5f7fa;border-radius:2mm;padding:2mm 3mm;font-style:italic}
+.res{display:flex;gap:5mm;margin-top:2.5mm;font-size:9.5pt}
+.res span::before{content:"☐ ";font-size:12pt}
+.nota{border-bottom:.3mm dotted #9aa5b1;height:6mm}
+.aviso{font-size:8.5pt;color:#b4441f}
+</style>
+</head>
+<body>
+<h1>{{ titulo }}</h1>
+<div class="maps"><img src="{{ qr }}" alt="" style="width:30mm;height:30mm;float:right;margin:-12mm 0 0 4mm"><b>Ruta a pie en Google Maps:</b> escanea el QR.</div><div style="clear:both"></div>
+{% for p in paradas %}
+<div class="p">
+  <h2>{{ loop.index }}. {{ p.nombre }} <small style="font-weight:400;color:#52606d">· {{ p.tipo }} · #{{ p.id }}</small></h2>
+  <div class="meta">{{ p.direccion or "Sin dirección (ver mapa)" }}{% if p.zona %} · {{ p.zona }}{% endif %}{% if p.telefono %} · {{ p.telefono }}{% endif %}<br>{{ p.horario_txt }}</div>
+  <div class="aviso">Antes de entrar: busca «{{ p.nombre }} Murcia» en Google por si ya tienen web.</div>
+  <div class="guion">{{ p.guion }}</div>
+  <div class="res"><span>No estaba</span><span>No interesa</span><span>Volver</span><span>Interesado</span><span>Cliente</span></div>
+  <div class="nota"></div>
+</div>
+{% endfor %}
+</body>
+</html>

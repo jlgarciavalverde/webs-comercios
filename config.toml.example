@@ -1,0 +1,28 @@
+# Copia este archivo como config.toml y rellena tus datos.
+[autor]
+nombre = "Tu nombre"
+telefono = "+34 600 000 000"
+email = ""              # solo se imprime en el dossier
+web = ""                # tu web/portfolio si tienes
+
+[precios]               # en euros
+web_basica = 350
+web_con_placa = 365     # web + placa NFC de reseñas
+mantenimiento_mes = 15
+placa_nfc = 20
+nota = "IVA no incluido"   # texto al pie de los precios
+
+[demos]
+dominio = "demo.redgarverde.com"
+proyecto_pages = "demos-comercios"
+caducidad_dias = 30
+
+[llm]
+url = "http://127.0.0.1:20128/v1"
+modelo = "free-fast"
+env_clave = "~/.hermes/.env"   # de aquí se lee OMNIROUTE_API_KEY
+
+[zona]
+# Centro por defecto para ordenar por cercanía (Plaza Circular, Murcia)
+lat = 37.9915
+lon = -1.1305

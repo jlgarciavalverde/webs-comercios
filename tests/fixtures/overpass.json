@@ -1,0 +1,11 @@
+{"version":0.6,"elements":[
+{"type":"node","id":1,"lat":37.985,"lon":-1.13,"tags":{"name":"Peluquería Ana","shop":"hairdresser","phone":"+34 968 000 001","addr:street":"Calle Mayor","addr:housenumber":"3","opening_hours":"Mo-Fr 09:30-14:00,17:00-20:30; Sa 09:30-14:00"}},
+{"type":"node","id":2,"lat":37.986,"lon":-1.131,"tags":{"name":"Bar El Rincón","amenity":"bar","website":"https://elrincon.example"}},
+{"type":"way","id":3,"center":{"lat":37.99,"lon":-1.12},"tags":{"name":"Mercadona","shop":"supermarket","brand":"Mercadona","brand:wikidata":"Q377705"}},
+{"type":"node","id":4,"lat":37.98,"lon":-1.125,"tags":{"name":"Taller Hermanos López","shop":"car_repair","contact:phone":"968000004"}},
+{"type":"node","id":5,"lat":37.981,"lon":-1.126,"tags":{"name":"Clínica Dental Sonrisa","amenity":"dentist","healthcare":"dentist"}},
+{"type":"node","id":6,"lat":37.982,"lon":-1.127,"tags":{"name":"Café Central","amenity":"cafe","facebook":"https://facebook.com/cafecentral"}},
+{"type":"node","id":7,"lat":37.983,"lon":-1.128,"tags":{"name":"Zapatería Pasos","shop":"shoes"}},
+{"type":"node","id":8,"lat":37.984,"lon":-1.129,"tags":{"name":"Estética Luna","beauty":"nails"}},
+{"type":"node","id":9,"lat":37.984,"lon":-1.129,"tags":{"shop":"bakery"}}
+]}
