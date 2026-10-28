@@ -1,9 +1,22 @@
 # webs-comercios
 
+![Licencia: todos los derechos reservados](https://img.shields.io/badge/licencia-propietaria-lightgrey)
+![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)
+![uv](https://img.shields.io/badge/gestor-uv-DE5FE9)
+![OpenStreetMap](https://img.shields.io/badge/datos-OpenStreetMap-7EBC6F?logo=openstreetmap&logoColor=white)
+
 Agente que busca comercios de Murcia **sin web** en OpenStreetMap, les prepara una **demo web adaptada** (textos con IA),
 un **dossier PDF** con QR a su demo y el pack web + placa NFC, y una **hoja de ruta** para visitarlos.
 
 Nada se envía solo: el primer contacto es en persona o por teléfono (la LSSI prohíbe el email/WhatsApp comercial no pedido).
+
+```mermaid
+flowchart LR
+  osm[(OpenStreetMap)] --> buscar --> ia["Textos con IA local"] --> demo["Demo web"] --> pages[(Cloudflare Pages)]
+  demo --> dossier["Dossier PDF con QR"] --> ruta["Hoja de ruta"] --> visita["Visita en persona"] --> nfc["Panel NFC"]
+```
+
+Diseño y detalle: [arquitectura](docs/arquitectura.md) · [requisitos](docs/requisitos.md) · [flujos](docs/flujos.md).
 
 ## Uso
 
@@ -46,3 +59,7 @@ Las demos se publican en `https://demo.redgarverde.com/<slug>/` (Cloudflare Page
 ```sh
 uv run pytest
 ```
+
+## Licencia
+
+Todos los derechos reservados: el código se puede consultar, pero no usar, copiar ni desplegar sin permiso. Ver [LICENSE](LICENSE).
