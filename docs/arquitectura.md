@@ -1,5 +1,7 @@
 # Arquitectura
 
+[← Documentación](README.md) · [README del proyecto](../README.md)
+
 `webs-comercios` es una CLI en Python 3.12 (gestionada con `uv`) que va desde la búsqueda de comercios hasta la hoja de ruta para visitarlos. Guarda el estado en un SQLite local y publica las demos como sitio estático.
 
 ## Visión general

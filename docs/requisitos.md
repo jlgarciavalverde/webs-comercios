@@ -1,5 +1,7 @@
 # Requisitos
 
+[← Documentación](README.md) · [README del proyecto](../README.md)
+
 ## Requisitos funcionales
 
 | ID | Requisito |
